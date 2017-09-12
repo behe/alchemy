@@ -20,7 +20,7 @@ defmodule Alchemy.Mixfile do
   defp deps do
     [
       {:erlsom, "~> 1.4"},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 2.0"},
       {:mix_test_watch, "~> 0.3", only: :test},
     ]
   end
