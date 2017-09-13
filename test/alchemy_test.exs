@@ -44,4 +44,38 @@ defmodule AlchemyTest do
       }
     }
   end
+
+  test "parse" do
+    xml = "
+    <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>
+    <user>
+      <dateOfBirth>1977-01-01T01:00:00+01:00</dateOfBirth>
+      <email>test_63672443684@example.test</email>
+      <emailStatus>2</emailStatus>
+      <firstName>Rök</firstName>
+      <id>65188401</id>
+      <lastName>Test</lastName>
+      <mobileStatus>0</mobileStatus>
+      <properties/>
+      <registrationDate>2017-09-12T15:55:46.300+02:00</registrationDate>
+      <userName>test_63672443684@example.test</userName>
+      <zip>12345</zip>
+    </user>"
+
+    assert Alchemy.parse(xml) == %{
+      "user" => %{
+        "dateOfBirth" => "1977-01-01T01:00:00+01:00",
+        "email" => "test_63672443684@example.test",
+        "emailStatus" => "2",
+        "firstName" => "Rök",
+        "id" => "65188401",
+        "lastName" => "Test",
+        "mobileStatus" => "0",
+        "properties" => [],
+        "registrationDate" => "2017-09-12T15:55:46.300+02:00",
+        "userName" => "test_63672443684@example.test",
+        "zip" => "12345"
+      }
+    }
+  end
 end
